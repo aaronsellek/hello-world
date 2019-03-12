@@ -1,13 +1,14 @@
 from django.contrib import admin
-from blog.models import Blogger, Topic, BlogPost
+from .models import Comment, Blog, Post
 
-class BloggerAdmin(admin.ModelAdmin):
-    list_display = ('first_name','last_name','bio')
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    
 
-class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('post', 'blogger', 'display_topic', 'post_date')
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    
 
-
-admin.site.register(BlogPost, BlogPostAdmin)
-admin.site.register(Topic)
-admin.site.register(Blogger, BloggerAdmin)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    
